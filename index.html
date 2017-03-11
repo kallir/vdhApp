@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+      <meta charset="UTF-8">
+      <title>OUCE - WHERE IS THAT?</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+      <script type="text/javascript" src="https://content.jwplatform.com/libraries/pxpA1osq.js"></script>
+      <script src="app.js"></script>
+      <script src="main.ctrl.js"></script>
+      <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+      <script type="text/javascript">
+        // instantiate a new Clarifai app passing in your clientId and clientSecret
+        var app = new Clarifai.App(
+          'eFLSb235gU67App5u1SQmSTws4dsCajAR8VGYxeD',
+          'qU0bAC4UzvMtOvfkcjO6Tiny01tHJrEjh6BBgHL6'
+          );
+      </script>
+  </head>
+  <body ng-app="app" ng-controller="MainController as main">
+    <div class="container">
+    <div id="thumbs">Loading video in background...</div>
+        <h1>{{main.where}}</h1>
+            <!--jwplayer-->
+        <div id='myElement'>Loading the player...</div>
+        <script type='text/javascript'>
+          jwplayer("myElement").setup({
+            "file": "rush_hour.mp4"
+          });
+        </script>
+        <h1>{{main.here}}</h1>
+        <span id="location">{{main.location}}</span>
+
+        <iframe id="map"
+          width="600"
+          height="450"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDOhtHBHXyWSmXtnfA6QmYMIqmxDliPAuU&q=Paris" allowfullscreen>
+        </iframe>
+    </div>
+          <script src="js/predict.js"></script>
+  </body>
+</html>

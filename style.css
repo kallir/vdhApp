@@ -1,0 +1,14 @@
+body 
+{
+  	text-align: center;
+}
+
+#map {
+	margin: 0 auto;
+	display: block;
+}
+
+#location {
+	font-size: 4em;
+}
+#video {width:320px}
